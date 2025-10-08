@@ -7,21 +7,25 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 public class LoginTests extends BaseTest {
-    @Test
-    public void loginEmptyEmailPassword() {
+@Test
 
-//      Added ChromeOptions argument below to fix websocket error
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+    public void loginValidEmailPassword(){
+        launchBrowser("https://qa.koel.app/");
+        navigatetoPage();
 
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        // TODO (for students): Review the configuration as part of HW15
-        
-        String url = "httpps://qa.koel.app/";
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+    LoginPage loginPage = new LoginPage(driver);
+    Homework22 homework22 = new Homework22(driver);
+    loginPage.provideEmail("heilyn.fuselier@testpro.io");
+    loginPage.providePassword("HolaMundo@2025");
+    loginPage.clickSubmit();
+    homework22.openPlaylist();
+    homework22.renamePlaylist("Christmas");
     }
-}
+
+    }
+
+
+
+
+
+

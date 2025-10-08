@@ -1,0 +1,46 @@
+package base;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import pages.HomePage;
+
+
+public class LoginPage extends BasePage {
+// @FindBy loginpage
+    @FindBy(css = "[type='submit']")
+    private WebElement submitButtonLocator;
+
+    @FindBy(css = "[type='email']")
+    private WebElement emailField;
+    @FindBy(css = "[type='password']")
+    private WebElement passwordField;
+
+
+    public LoginPage(WebDriver givenDriver){
+        super(givenDriver);
+    }
+
+
+// fluent interfaces
+    public LoginPage provideEmail(String email) {
+        emailField.sendKeys(email);
+        return this;
+    }
+
+    public LoginPage providePassword(String password) {
+        passwordField.sendKeys(password);
+        return this;
+    }
+    public LoginPage clickSubmitBtn() {
+        submitButtonLocator.click();
+        return this;
+    }
+  public HomePage login(String email, String password){
+
+     provideEmail(email);
+     providePassword(password);
+     clickSubmitBtn();
+     return new HomePage(driver);
+
+  }
+}

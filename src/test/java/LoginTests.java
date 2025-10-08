@@ -1,27 +1,31 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+
+import base.LoginPage;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+import org.testng.annotations.Parameters;
+import pages.HomePage;
+import pages.Homework23;
+
 
 public class LoginTests extends BaseTest {
+    @Parameters({"BaseUrl"})
     @Test
-    public void loginEmptyEmailPassword() {
 
-//      Added ChromeOptions argument below to fix websocket error
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
+    public void loginValidEmailPassword(String BaseUrl){
+        launchBrowser(BaseUrl);
+        navigatetoPage();
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homepage = loginPage.login("heilyn.fuselier@testpro.io",("HolaMundo@2025"));
+        Assert.assertTrue(homepage.isAvatarVisible(),"Login its fail");
 
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Homework23 homework23 = new Homework23(driver);
 
-        // TODO (for students): Review the configuration as part of HW15
-        
-        String url = "httpps://qa.koel.app/";
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+        homework23.openPlaylist();
+         homework23.renamePlaylist("ChristmasMusic");
+
+
     }
+
 }

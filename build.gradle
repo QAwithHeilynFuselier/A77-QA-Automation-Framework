@@ -15,8 +15,12 @@ dependencies {
     testImplementation 'io.github.bonigarcia:webdrivermanager:6.0.1'
 }
 
+// Default suite if not specified
+def suite = project.hasProperty('suite') ? project.suite : 'TestNG'  // default to TestNG if suite is not passed
+
 test {
-    useTestNG() {
-        suites "src/test/resources/TestNG.xml"
+    useTestNG {
+        suites "src/test/resources/${suite}.xml"
+        systemProperty "browser", System.getProperty("browser")
     }
 }

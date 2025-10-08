@@ -18,5 +18,9 @@ dependencies {
 test {
     useTestNG() {
         suites "src/test/resources/TestNG.xml"
+        systemProperty "browser", System.getProperty("browser", "chrome")
+        //systemProperty "browser", System.getProperty("browser", "firefox")
+       // systemProperty "BaseURL", System.getProperty("BaseURL", "https://www.burlington.com");
     }
 }
+

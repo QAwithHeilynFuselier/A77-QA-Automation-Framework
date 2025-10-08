@@ -1,27 +1,20 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.Assert;
+
+
+
+
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+
 
 public class LoginTests extends BaseTest {
+
+    @Parameters({"BaseURL", "browser"})
     @Test
-    public void loginEmptyEmailPassword() {
+    public void verifyLoginPage(String BaseURL, String browser) {
 
-//      Added ChromeOptions argument below to fix websocket error
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        // TODO (for students): Review the configuration as part of HW15
-        
-        String url = "httpps://qa.koel.app/";
-        driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+        assert driver.getCurrentUrl().equals(BaseURL)
+                : "Did not land on correct URL";
     }
 }
+

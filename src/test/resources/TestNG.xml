@@ -2,7 +2,8 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="TestNG">
-
+    <parameter name="BaseURL" value="https://www.burlington.com/"/>
+    <parameter name="browser" value="chrome"/>
     <test name="Example Test" preserve-order="false">
         <classes>
             <class name="LoginTests"/>

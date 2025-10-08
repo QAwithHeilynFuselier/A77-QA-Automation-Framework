@@ -1,12 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-
-<suite name="TestNG">
-
-    <test name="Example Test" preserve-order="false">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG Suite">
+    <test name="Login Tests">
         <classes>
-            <class name="LoginTests"/>
-            <class name="BaseTest"/>
+            <class name="runner.CucumberRunnerTest"/>
         </classes>
     </test>
 </suite>

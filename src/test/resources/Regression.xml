@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Regression Suite">
+    <parameter name="BaseUrl" value="https://qa.koel.app/"/>
+    <test name="Regression Tests">
+        <classes>
+            <class name="test.LoginTests">
+                <methods>
+                    <include name="loginValidEmailPasswordTest"/>
+                    <include name="loginWithInvalidEmailPasswordTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

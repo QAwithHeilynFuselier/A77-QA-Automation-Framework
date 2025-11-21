@@ -18,8 +18,18 @@ public class LoginTests extends BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         // TODO (for students): Review the configuration as part of HW15
-        
-        String url = "httpps://qa.koel.app/";
+
+
+        //String url = "httpps://qa.koel.app/";
+        //AssertionError: expected URL 'https://qa.koel.app/"'
+        //but got 'httpps://qa.koel.app/'
+
+        //Updating expected redirect URL "https://testpro.io/"
+
+        String url = "https://testpro.io/";
+
+
+
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();

@@ -22,17 +22,17 @@ public class homework16 {
             String url = "https://qa.koel.app/";
             driver.get(url);
 
-            // Verificar URL inicial
+            // Verify url
             Assert.assertEquals(driver.getCurrentUrl(), url);
 
-            // Click en el enlace de registro
+            // Click in the link for register
             driver.findElement(By.cssSelector("a[href='/register']")).click();
 
-            // Validar URL de registro
+            // validate to url
             Assert.assertEquals(driver.getCurrentUrl(), "https://qa.koel.app/register");
 
 
-            // Cerrar el navegador al final
+            // Closing
             driver.quit();
 
     }

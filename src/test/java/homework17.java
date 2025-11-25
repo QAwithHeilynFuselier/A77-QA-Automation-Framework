@@ -113,11 +113,6 @@ public class homework17 extends BaseTest {
 
     }
 
-
-
-
-
-
     }
 
 

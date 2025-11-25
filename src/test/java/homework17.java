@@ -20,10 +20,9 @@ public class homework17 extends BaseTest {
 
     @Test
     public void addSongToPlaylist() throws InterruptedException {
-        // 1. Open browser
-        // open Chrome browser
+
         ChromeOptions options = new ChromeOptions();
-//remove allow
+
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("profile.default_content_setting_values.notifications", 2);
         options.setExperimentalOption("prefs", prefs);
@@ -33,14 +32,14 @@ public class homework17 extends BaseTest {
         WebDriver driver = new ChromeDriver(options);
 
 
-        // wait 10 seconds
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         String url = "https://qa.koel.app/";
         driver.get(url);
         Assert.assertEquals(driver.getCurrentUrl(), url);
 
-//login
+
         WebElement emailInput = driver.findElement(By.cssSelector("input[placeholder='Email Address']"));
         emailInput.sendKeys("heilyn.fuselier@testpro.io");
         WebElement passwordInput = driver.findElement(By.cssSelector("input[placeholder='Password']"));
@@ -56,7 +55,7 @@ public class homework17 extends BaseTest {
                 By.cssSelector("input[placeholder='Press F to search']")
         );
 
-        searchBox.sendKeys("BossStatus");   // pick any song
+        searchBox.sendKeys("Algorihms");   // pick any song
         searchBox.sendKeys(Keys.ENTER);
 
 //
@@ -73,15 +72,15 @@ public class homework17 extends BaseTest {
         WebDriverWait wa = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 // 1️ Locate the song you want to right-click
-        WebElement song = wait.until(
+      /*  WebElement song = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.cssSelector(".song-item")    // adjust to your actual locator
                 )
-        );
+        );*/
 
 // 2️ Right-click (context menu)
         Actions actions = new Actions(driver);
-        actions.contextClick(song).perform();
+        actions.contextClick(firstSong).perform();
 
 // 3️ Click "Add to" in the context menu
         WebElement addToMenu = wait.until(
@@ -100,40 +99,12 @@ public class homework17 extends BaseTest {
 
         heilynPlaylist.click();
 
-    WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-    // Locate the playlist link by its name
-        WebElement heilynPlaylistLink = w.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath("//a[normalize-space()='Heilyn']")
-                )
-        );
-        heilynPlaylistLink.click();
+
+
 
 
     }
 
-    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-      //  driver.quit();
-
-
-
-
-
-
-
-
+}

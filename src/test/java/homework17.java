@@ -72,7 +72,7 @@ public class homework17 extends BaseTest {
 
         WebDriverWait wa = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-// 1️⃣ Locate the song you want to right-click
+// 1️ Locate the song you want to right-click
         WebElement song = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.cssSelector(".song-item")    // adjust to your actual locator

@@ -63,7 +63,7 @@ public class Homework18 extends BaseTest {
         // Validate song is playing by checking Pause button
 
 
-        boolean isPlaying = driver.findElement(By.cssSelector("span[data-testid='pause-btn']")).isDisplayed();
+        boolean isPlaying = driver.findElement(By.cssSelector("[data-testid='sound-bar-play']")).isDisplayed();
 
         if (isPlaying) {
             System.out.println("Song is playing.");

@@ -10,6 +10,7 @@
             <class name="Basepage"/>
             <class name="Homework22"/>
             <class name="LoginPage"/>
+            <class name="HomePage"/>
         </classes>
     </test>
 </suite>

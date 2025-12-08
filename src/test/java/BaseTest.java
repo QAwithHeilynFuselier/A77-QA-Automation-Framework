@@ -41,9 +41,9 @@ public class BaseTest {
 
 
     public void navigatetoPage() {
+
         driver.get(url);
     }
-
 
 
 

@@ -27,7 +27,7 @@ public class Basepage {
         wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         actions = new Actions(driver);
 
-        //this.driver = driver;   //original
+
 
     }
     public WebElement findelement(By locator){

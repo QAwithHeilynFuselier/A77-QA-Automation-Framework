@@ -1,25 +1,29 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
+
 
 public class LoginTests extends BaseTest {
-@Test
+    @Parameters({"BaseUrl"})
+    @Test
 
-    public void loginValidEmailPassword(){
-        launchBrowser("https://qa.koel.app/");
+    public void loginValidEmailPassword(String BaseUrl){
+        launchBrowser(BaseUrl);
         navigatetoPage();
 
     LoginPage loginPage = new LoginPage(driver);
     Homework22 homework22 = new Homework22(driver);
+    HomePage homepage = new HomePage(driver);
     loginPage.provideEmail("heilyn.fuselier@testpro.io");
     loginPage.providePassword("HolaMundo@2025");
     loginPage.clickSubmit();
     homework22.openPlaylist();
-    homework22.renamePlaylist("Christmas");
+      homework22.renamePlaylist("List2026");
+    Assert.assertTrue(homepage.getUserAvatar().isDisplayed());
+
+
     }
 
     }

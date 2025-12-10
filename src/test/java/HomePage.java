@@ -11,7 +11,7 @@ public class HomePage  extends Basepage{
     }
      By userAvatarIcon = By.cssSelector("img.avatar");
     public WebElement getUserAvatar(){
-    return findelement(userAvatarIcon);
+    return findElement(userAvatarIcon);
     }
 
 

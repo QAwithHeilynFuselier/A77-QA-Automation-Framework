@@ -27,13 +27,17 @@ public class Basepage {
         wait = new WebDriverWait(driver,Duration.ofSeconds(10));
         actions = new Actions(driver);
 
-
-
     }
-    public WebElement findelement(By locator){
+    public WebElement findElement(By locator){
         return  wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public void click (By locator){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).click();
+    }
+public void doubleclick(By locator){
+   actions.doubleClick(findElement(locator)).perform();
+}
 
 
 

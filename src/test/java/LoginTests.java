@@ -14,13 +14,15 @@ public class LoginTests extends BaseTest {
         navigatetoPage();
 
     LoginPage loginPage = new LoginPage(driver);
-    Homework22 homework22 = new Homework22(driver);
-    HomePage homepage = new HomePage(driver);
+
     loginPage.provideEmail("heilyn.fuselier@testpro.io");
     loginPage.providePassword("HolaMundo@2025");
     loginPage.clickSubmit();
+    Homework22 homework22 = new Homework22(driver);
+
     homework22.openPlaylist();
       homework22.renamePlaylist("List2026");
+        HomePage homepage = new HomePage(driver);
     Assert.assertTrue(homepage.getUserAvatar().isDisplayed());
 
 

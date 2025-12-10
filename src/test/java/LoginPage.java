@@ -15,21 +15,15 @@ By PasswordField =By.cssSelector("input[placeholder='Password']");
 By Summitbtn =By.xpath("//button[text()='Log In']");
 
     public void provideEmail(String email) {
-        WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Email Address']")));
-
-        emailField.clear();
-        emailField.sendKeys(email);
+      findElement(EmailField).sendKeys(email);
     }
 
     public void providePassword(String password) {
-        WebElement passwordfi = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[placeholder='Password']")));
-        passwordfi.clear();
-        passwordfi.sendKeys(password);
+      findElement(PasswordField).sendKeys(password);
     }
 
     public void clickSubmit() {
-        WebElement summit = driver.findElement(By.xpath("//button[text()='Log In']"));
-        summit.click();
+        findElement(Summitbtn).click();
     }
 
     public void login(){

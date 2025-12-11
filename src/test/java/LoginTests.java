@@ -1,9 +1,7 @@
 
 import base.LoginPage;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import org.testng.annotations.Parameters;
 import pages.HomePage;
 import pages.Homework23;

@@ -4,7 +4,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
-
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;

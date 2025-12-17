@@ -43,7 +43,7 @@ public class BaseTest {
 
         // Fallback if not provided
         if (browser == null || browser.isEmpty()) {
-            browser = "firefox"; // default
+            browser = "chrome"; // default
         }
 
         threadDriver.set(pickBrowser(browser));    // thread-safe WebDriver

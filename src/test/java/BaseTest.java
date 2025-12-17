@@ -28,6 +28,7 @@ public class BaseTest {
 
 
     public static final ThreadLocal<WebDriver> threadDriver = new ThreadLocal<>();
+
     // create getdriverpage11
     public static WebDriver getDriver() {
         return threadDriver.get();
@@ -60,12 +61,12 @@ public class BaseTest {
         driver.quit();
     }
 
-    public  void navigateToPage() {
+    public void navigateToPage() {
         getDriver().get(url);
     }
 
 
-    public WebDriver  lambdaTestfirefox() throws MalformedURLException {
+    public WebDriver lambdaTestfirefox() throws MalformedURLException {
         String hubURL = "https://hub.lambdatest.com/wd/hub";
 
         FirefoxOptions browserOptions = new FirefoxOptions();
@@ -85,7 +86,7 @@ public class BaseTest {
     }
 
 
-    public WebDriver  lambdaTestEdge() throws MalformedURLException {
+    public WebDriver lambdaTestEdge() throws MalformedURLException {
         String hubURL = "https://hub.lambdatest.com/wd/hub";
 
         EdgeOptions browserOptions = new EdgeOptions();
@@ -99,10 +100,10 @@ public class BaseTest {
         ltOptions.put("name", "Edge Test - " + System.currentTimeMillis());
         ltOptions.put("build", "Selenium4");
         browserOptions.setCapability("LT:Options", ltOptions);
-        return new RemoteWebDriver(new URL(hubURL),  browserOptions);
+        return new RemoteWebDriver(new URL(hubURL), browserOptions);
     }
 
-    public WebDriver  lambdaTestChrome() throws MalformedURLException {
+    public WebDriver lambdaTestChrome() throws MalformedURLException {
         String hubURL = "https://hub.lambdatest.com/wd/hub";
 
         ChromeOptions browserOptions = new ChromeOptions();
@@ -129,7 +130,7 @@ public class BaseTest {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridUrl = "http://192.168.100.226:4444";
 
-        switch(browser){
+        switch (browser) {
             case "edge":
                 WebDriverManager.edgedriver().setup();
                 EdgeOptions edgeOptions = new EdgeOptions();
@@ -170,13 +171,12 @@ public class BaseTest {
                 return driver = new ChromeDriver(defaultOptions);
         }
     }
+
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() {
         threadDriver.get().close();
         threadDriver.remove();
     }
-
-
 
 
 }

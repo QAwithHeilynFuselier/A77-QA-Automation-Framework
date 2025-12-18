@@ -2,7 +2,7 @@
 <suite name="TestNG Suite">
     <test name="Login Tests">
         <classes>
-            <class name="runner.CucumberRunnerTest"/>
+            <class name="RunningTest"/>
         </classes>
     </test>
 </suite>

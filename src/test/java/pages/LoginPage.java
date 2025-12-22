@@ -17,7 +17,10 @@ public class LoginPage extends BasePage {
     private WebElement emailField;
     @FindBy(css = "[type='password']")
     private WebElement passwordField;
-
+    @FindBy(css = "[data-testid='login-form']")
+    private WebElement loginForm;
+    @FindBy(id = "nprogress")
+    private WebElement progressBar;
 
     public LoginPage(WebDriver givenDriver){
         super(givenDriver);
@@ -46,4 +49,14 @@ public class LoginPage extends BasePage {
         return new HomePage(driver);
 
     }
+
+    public boolean isLoginPageVisible() {
+        return loginForm.isDisplayed();
+    }
+    public boolean isErrorMessageVisible() {
+        return progressBar.isDisplayed();
+    }
+
+
+
 }

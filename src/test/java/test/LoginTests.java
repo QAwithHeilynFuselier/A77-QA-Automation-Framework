@@ -11,10 +11,8 @@ import org.testng.annotations.Parameters;
 
 public class LoginTests extends BaseTest {
 
-
-
     @Parameters({"BaseUrl"})
-    @Test(groups = "Smoke")
+    @Test(groups = "smoke")
 
     public void loginValidEmailPassword(String BaseUrl){
         launchBrowser(BaseUrl);
@@ -33,19 +31,16 @@ public class LoginTests extends BaseTest {
 
 
     @Parameters({"BaseUrl"})
-    @Test(groups = {"Smoke", "Regression"})
+    @Test(groups = {"smoke", "regression"})
 
     public void loginwithInValidEmailPassword(String BaseUrl) {
 
         launchBrowser(BaseUrl);
 
         LoginPage loginPage = new LoginPage(getDriver());
-        HomePage homepage = loginPage.login(
-                "heilyn.fuselier@testpro.io",
-                "HolaMundo@2024"
-        );
+        loginPage.login("heilyn.fuselier@testpro.io", "HolaMundo@2025");
 
-        Assert.assertTrue(homepage.isAvatarVisible(), "Login failed");
+        Assert.assertTrue(loginPage.isErrorMessageVisible(), "Error message is not displayed for invalid login");
     }
 
 

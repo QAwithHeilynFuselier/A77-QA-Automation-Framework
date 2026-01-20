@@ -55,8 +55,8 @@ public class BaseTest {
         driver.get(url);
     }
 
-   @AfterMethod
+   /*@AfterMethod
     public void closetobrowser(){
       driver.quit();
-    }
+    }*/
 }
